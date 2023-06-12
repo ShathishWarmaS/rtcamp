@@ -28,10 +28,12 @@ def create_wordpress_site(site_name):
 
 def add_etc_hosts_entry(site_name):
     with open("/etc/hosts", "a") as hosts_file:
-        hosts_file.write(f"127.0.0.1 {site_name}\n")
+        hosts_file.write("127.0.0.1 {}\n".format(site_name))
+
 
 def open_browser(site_name):
-    print(f"Open {site_name} in your browser to access the site.")
+    print("Open " + site_name + " in your browser to access the site.")
+
 
 def enable_site():
     subprocess.call(["docker-compose", "-f", "docker-compose.yml", "start"])
